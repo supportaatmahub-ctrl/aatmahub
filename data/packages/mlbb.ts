@@ -1,0 +1,16 @@
+export const mlbbPackages = [
+  { id: 1, name: "Weekly Pass", price: 169 },
+  { id: 2, name: "86 Diamonds", price: 129 },
+  { id: 3, name: "172 Diamonds", price: 269 },
+  { id: 4, name: "257 Diamonds", price: 385 },
+  { id: 5, name: "344 Diamonds", price: 490 },
+  { id: 6, name: "429 Diamonds", price: 599 },
+  { id: 7, name: "514 Diamonds", price: 750 },
+  { id: 8, name: "706 Diamonds", price: 999 },
+  { id: 9, name: "878 Diamonds", price: 1149 },
+  { id: 10, name: "963 Diamonds", price: 1349 },
+  { id: 11, name: "1412 Diamonds", price: 2199 },
+  { id: 12, name: "3688 Diamonds", price: 5149 },
+  { id: 13, name: "5532 Diamonds", price: 7749 },
+  { id: 14, name: "9288 Diamonds", price: 12899 },
+];

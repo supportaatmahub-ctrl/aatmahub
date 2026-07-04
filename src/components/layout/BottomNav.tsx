@@ -1,31 +1,46 @@
 "use client";
 
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 import { House, BadgeCheck, Package, User } from "lucide-react";
 
 export default function BottomNav() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    return onAuthStateChanged(auth, (user) => {
+      setLoggedIn(!!user);
+    });
+  }, []);
+
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-red-700/40 bg-red-900/95 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-[430px] items-center justify-around">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-red-600/20 bg-[#121212]/95 backdrop-blur">
+      <div className="mx-auto flex max-w-md justify-around py-3">
 
-        <button className="flex flex-col items-center text-white">
+        <Link href="/" className="flex flex-col items-center text-red-500">
           <House size={22} />
-          <span className="mt-1 text-[11px] font-semibold">Home</span>
-        </button>
+          <span className="text-xs">Home</span>
+        </Link>
 
-        <button className="flex flex-col items-center text-white/80">
+        <Link href="/check-id" className="flex flex-col items-center text-gray-300">
           <BadgeCheck size={22} />
-          <span className="mt-1 text-[11px] font-semibold">Check ID</span>
-        </button>
+          <span className="text-xs">Check ID</span>
+        </Link>
 
-        <button className="flex flex-col items-center text-white/80">
+        <Link href="/orders" className="flex flex-col items-center text-gray-300">
           <Package size={22} />
-          <span className="mt-1 text-[11px] font-semibold">Orders</span>
-        </button>
+          <span className="text-xs">Orders</span>
+        </Link>
 
-        <button className="flex flex-col items-center text-white/80">
+        <Link
+          href={loggedIn ? "/account" : "/login"}
+          className="flex flex-col items-center text-gray-300"
+        >
           <User size={22} />
-          <span className="mt-1 text-[11px] font-semibold">Account</span>
-        </button>
+          <span className="text-xs">Account</span>
+        </Link>
 
       </div>
     </nav>

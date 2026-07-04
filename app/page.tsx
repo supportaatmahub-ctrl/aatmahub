@@ -3,7 +3,7 @@ import HeroBanner from "@/components/layout/HeroBanner";
 import BottomNav from "@/components/layout/BottomNav";
 import Footer from "@/components/layout/Footer";
 import GameCard from "@/components/ui/GameCard";
-import { games } from "@/data/games";
+import { products } from "@/data/products";
 
 export default function Home() {
   return (
@@ -20,11 +20,12 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-3 gap-3">
-            {games.map((game) => (
+            {products.map((product) => (
               <GameCard
-                key={game.title}
-                title={game.title}
-                image={game.image}
+                key={product.slug}
+                title={product.title}
+                image={product.image}
+                slug={product.slug}
               />
             ))}
           </div>
